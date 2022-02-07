@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh !important;
-  background: #F9F9FB !important;
+  background: #F9F9F9 !important;
 }
 
 .post-content p {

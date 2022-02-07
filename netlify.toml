@@ -4,3 +4,7 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+   
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["public/locales/en/*.json", "public/locales/uk/*.json", "next-i18next.config.js"]
