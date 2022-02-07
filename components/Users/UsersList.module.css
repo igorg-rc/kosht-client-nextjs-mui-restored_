@@ -1,0 +1,21 @@
+.noUsers {
+  color: red;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.userList {
+  background: #ebebeb;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #a8a8a8;
+  border-radius: 5px;
+}
+
+.user:nth-child(odd) {
+  background: #bbb;
+}

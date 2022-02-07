@@ -1,0 +1,47 @@
+{
+  "name": "nextjs",
+  "version": "5.0.0",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "^5.2.4",
+    "@mui/material": "latest",
+    "@mui/styles": "^5.2.3",
+    "axios": "^0.21.1",
+    "clsx": "latest",
+    "i18next": "^21.5.2",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "i18next-http-backend": "^1.3.1",
+    "lodash.isempty": "^4.4.0",
+    "material-ui-search-bar": "^1.0.0",
+    "moment": "^2.29.1",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "next-i18next": "^10.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-spinners": "^0.11.0",
+    "react-table": "^7.7.0",
+    "react-tabs": "^3.2.3",
+    "sanitize-html": "^2.4.0",
+    "simple-react-lightbox": "^3.6.9-0",
+    "speakingurl": "^14.0.1",
+    "swr": "^1.1.2"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.2"
+  }
+}

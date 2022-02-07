@@ -1,0 +1,54 @@
+{
+  "header": {
+    "brandPhrase": "We talk about personal finances",
+    "brandBtn": "Kosht",
+    "searchBtn": "Find",
+    "searchPlaceholder": "Search"
+  },
+  "leftMenu": {
+    "followUs": "Follow us",
+    "subscribeHeader": "Enter email",
+    "subscribePlaceholder": "Enter email",
+    "subscribeLink": "Subscribe",
+    "subscribeAlert": "Congrats! You have subscribed on our weekly digest!",
+    "about": "About project"
+  },
+  "separateList": {
+    "accordionExpand": "expand",
+    "accordionCollapse": "collapse",
+    "accordionShowMore": "Show more",
+    "titleReadMore": "Read more",
+    "titleNewsWeek": "Main news",
+    "titleNews": "News",
+    "titleEditorChoice": "Editor choice",
+    "titleCurrenciesToday": "Exchange rate for today",
+    "currencyEuro": "Euro",
+    "currencyUSD": "USD",
+    "currencyBank": "Bank",
+    "currencyBuy": "Buy",
+    "currencySelling": "Selling",
+    "allCurrenciesLink": "All banks and currencies"
+  },
+  "currenciesPage": {
+    "pageTitle": "Exchange rate for today",
+    "searchInput": "Search by bank title",
+    "atPayDesk": "Paying in paydesk",
+    "atCard": "Paying by card",
+    "atOnline": "Paying online",
+    "currencyBuy": "Buy",
+    "currencySelling": "Selling"
+  },
+  "loading": {
+    "loadingStatus": "Loading..."
+  },
+  "search": {
+    "searchQuery": "Searching by query:",
+    "searchMessage": "Search returned no results"
+  },
+  "postList": {
+    "noPosts": "No posts created yet!"
+  },
+  "postDetail": {
+
+  }
+}

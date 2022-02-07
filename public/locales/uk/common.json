@@ -1,0 +1,54 @@
+{
+  "header": {
+    "brandPhrase": "Розповідаємо про особисті фінанси",
+    "brandBtn": "Кошт",
+    "searchBtn": "Знайти",
+    "searchPlaceholder": "Пошук"
+  },
+  "leftMenu": {
+    "followUs": "Слідкуйте за нами",
+    "subscribeHeader": "Введіть email",
+    "subscribePlaceholder": "Ваш email",
+    "subscribeLink": "Підписатися",
+    "subscribeAlert": "Вітаємо! Ви підписалися на щотижневу розсилку наших статей!",
+    "about": "Про проект"
+  },
+  "separateList": {
+    "accordionExpand": "розгорнути",
+    "accordionCollapse": "згорнути",
+    "accordionShowMore": "Показати ще",
+    "titleReadMore": "Читайте ще",
+    "titleNewsWeek": "Головне",
+    "titleNews": "Новини",
+    "titleEditorChoice": "Вибір редакції",
+    "titleCurrenciesToday": "Курс валют на сьогодні",
+    "currencyEuro": "Євро",
+    "currencyUSD": "Долар",
+    "currencyBank": "Банк",
+    "currencyBuy": "Купівля",
+    "currencySelling": "Продаж",
+    "allCurrenciesLink": "Всі банки і валюти"
+  },
+  "currenciesPage": {
+    "pageTitle": "Курс валют на сьогодні",
+    "searchInput": "Пошук за назвою банку",
+    "atPayDesk": "У касах банків",
+    "atCard": "При оплаті карткою",
+    "atOnline": "При оплаті онлайн",
+    "currencyBuy": "Купівля",
+    "currencySelling": "Продаж"
+  },
+  "loading": {
+    "loadingStatus": "Завантаження..."
+  },
+  "search": {
+    "searchQuery": "Пошук по:",
+    "searchMessage": "Пошук не дав результатів"
+  },
+  "postList": {
+    "noPosts": "Ще не створено постів!"
+  },
+  "postDetail": {
+
+  }
+}

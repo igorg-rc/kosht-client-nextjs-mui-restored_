@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap');
+@import url('../files/fonts/gilroy/stylesheet.css');
+
+body {
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Gilroy', 'Roboto',  'Segoe UI','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh !important;
+  background: #F9F9FB !important;
+}
+
+.post-content p {
+  margin-top: 0 !important;
+}
+
+.post-content p,
+.post-content ul li {
+  border-radius: 5px !important;
+  max-width: 100% !important;
+  text-align: left;
+  font-size: 14px !important;
+  font-style: normal !important;
+  line-height: 160%;
+  font-family: 'Roboto', sans-serif !important;
+  color: '#2E3A59' !important;
+}
+
+.post-content p img, .ql-video {
+  text-align: center !important;
+  padding-top: 5px !important;
+  max-width: 100% !important;
+  border-radius: 10px !important;
+}
+
+/* #brand-link {
+  height: 30px !important;
+  margin-right: auto !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.MuiToolbar-gutters {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.MuiTabs-indicator {
+  display: none !important;
+}
+
+.Mui-selected {
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+}
+
+.MuiBox-root {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.currencies-table__head-row:after {
+  content: '' !important;
+  display: block !important;
+  position: relative !important;
+  width: 2% !important;
+  border: 2px solid #898989 !important;
+  margin-top: 8px !important; 
+}
+
+.MuiButtonBase-root .MuiTab-root .MuiTab-textColorInherit .Component-root-156 .Component-root-162 {
+  color: red !important
+}
+
+.content-row:last-child div {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+} */
+
+
+/* .MuiInputBase-root, .MuiOutlinedInput-root, .makeStyles-searchInput-10, .MuiInputBase-formControl, .MuiInputBase-adornedStart, .MuiOutlinedInput-adornedStart, .MuiInputBase-adornedEnd, .MuiOutlinedInput-adornedEnd, .makeStyles-search-9, .MuiFormControl-root, .MuiTextField-root {
+  border: none !important;
+} */
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+  /* border: 1px solid white !important; */
+}
+
+#search-menu-button-mob {
+  padding: 6px 20px !important;
+  margin-left: 0 !important;
+}
+
+.makeStyles-brandLink-229, .MuiSvgIcon-root {
+  margin: 0 !important;
+}
+
+
+/* Styles on post displaying stuff */
+.post-content {
+  border-radius: 20px !important;
+  max-width: 100% !important;
+  color:#2E3A59 !important;
+  /* border: 1px solid green; */
+}
+
+
+.post-content p {
+  margin-top: 0 !important;
+}
+
+.post-content p,
+.post-content ul li {
+  border-radius: 5px !important;
+  max-width: 100% !important;
+  text-align: left;
+  font-size: 14px !important;
+  font-style: normal !important;
+  line-height: 160%;
+  font-family: 'Roboto', sans-serif !important;
+  color: '#2E3A59' !important;
+}
+
+.MuiTypography-paragraph {
+  
+}
+
+.makeStyles-search-9 {
+  border: none !important;
+}
+
+.MuiOutlinedInput-root {
+  background-color: #fff;
+  border-radius: 8px !important;
+  border: none !important;
+}
+
+.makeStyles-searchIcon-19 {
+  margin-left: 10px;
+}
+
+.post-content iframe {
+  width: 100% !important;
+  height: 400px !important;
+  border-radius: 5px !important;
+}
+
+.post-content a {
+  text-decoration: none !important;
+}
+
+.post-content a:hover {
+  text-decoration: underline !important;
+  transition: 0.5s;
+}
+
+.post-content p img, .ql-video {
+  text-align: center !important;
+  padding-top: 5px !important;
+  max-width: 100% !important;
+  border-radius: 10px !important;
+}
+
+.post-content-detail p img:hover {
+  cursor: pointer !important;
+  /* color: #2E3A59 !important; */
+}
+
+
+/* Spinners styles */
+.page-loading-spinner {
+  color: #2E3A59 !important;
+}
+
+/* Vector */
+.left-menu-icon {
+  color: #000 !important;
+  width: 20px;
+}
+
+/* Accordion of lists styles */
+.accordion-expand-text {
+  color: red !important;
+  border: 1px solid red;
+  margin-left: 100px !important;
+}
+
+
+/*============ Left menu styles ============*/
+/* Language switcher styles */
+
+/*=========== Currencies table styles  ==========*/
+/* .currencies thead tr {
+  background-color: lightgrey !important;
+  padding: 5px 0 !important;
+  margin: 5px 0 !important;
+} */
+/* 
+.MuiTableCell-root, 
+.MuiTableCell-body  {
+  padding: 7px 0 !important;
+  border: none !important;
+}
+
+.currencies {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+} */
+
+/* .currencies tr th:nth-child(4), 
+.currencies tr td:nth-child(7),
+.currencies tr td:nth-child(8){
+  text-align: right !important;
+ } */
+ /* .currencies tr td:nth-child(2) {
+   min-width: 100px;
+ }
+
+.currencies tr td:nth-child(3), 
+.currencies tr td:nth-child(5),  
+.currencies tr td:nth-child(7) {
+  text-align: right !important;
+ }
+
+ .currencies tr td:nth-child(3)::after, 
+ .currencies tr td:nth-child(5)::after,
+ .currencies tr td:nth-child(7)::after {
+  content: "\00a0/\00a0" !important;
+  color: "#B8B8B8" !important;
+} */
+
+ /* .currencies thead tr:nth-child(2) {
+   background-color: lightgrey;
+   padding: 5px 0 !important;
+   margin: 5px 0 !important;
+ } */
+
+
+/* .sorting-btn {
+  padding: 0 2px;
+}
+
+.sorting-btn:hover {
+  cursor: pointer;
+  color: grey;
+} */
+
