@@ -1,4 +1,16 @@
 {
+  "head": {
+    "mainTitle": "Kosht",
+    "indexTitle": "We talk about personal finances",
+    "indexDescription": "Last news about economics and finances",
+    "indexKeywords": "Economics, currencies, GDP, banking, finances",
+    "postsByCategory": "All posts by category:",
+    "postsByCategoryDesc": "List of articles by category:",
+    "postsByTag": "All posts by tag:",
+    "postsByTagDesc": "List of articles by tag:",
+    "searchByQuery": "Searching by query:",
+    "search": "search"
+  },
   "header": {
     "brandPhrase": "We talk about personal finances",
     "brandBtn": "Kosht",
@@ -20,8 +32,8 @@
     "titleReadMore": "Read more",
     "titleNewsWeek": "Main news",
     "titleNews": "News",
+    "titleAllNews": "All news",
     "titleEditorChoice": "Editor choice",
-    "titleCurrenciesToday": "Exchange rate for today",
     "currencyEuro": "Euro",
     "currencyUSD": "USD",
     "currencyBank": "Bank",
@@ -30,13 +42,16 @@
     "allCurrenciesLink": "All banks and currencies"
   },
   "currenciesPage": {
+    "titleCurrenciesToday": "Exchange rate for today",
     "pageTitle": "Exchange rate for today",
     "searchInput": "Search by bank title",
     "atPayDesk": "Paying in paydesk",
     "atCard": "Paying by card",
     "atOnline": "Paying online",
     "currencyBuy": "Buy",
-    "currencySelling": "Selling"
+    "currencySelling": "Selling",
+    "currenciesList": "Euro, USD, Rubl, GB Pound, Swiss Franc, Pl Zloty, Czech Crown",
+    "currenciesDesc": "Exchange rates for foreign currencies to Ukrainian hryvnia today. Exchange rate at buying of the currency online, buying by card, buying in paydesk of banks"
   },
   "loading": {
     "loadingStatus": "Loading..."
@@ -49,6 +64,5 @@
     "noPosts": "No posts created yet!"
   },
   "postDetail": {
-
   }
 }

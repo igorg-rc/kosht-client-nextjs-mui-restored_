@@ -1,4 +1,16 @@
-{
+{  
+  "head": {
+    "mainTitle": "Кошт",
+    "indexTitle": "Розповідаємо про особисті фінанси",
+    "indexDescription": "Останні новини про економіку та фінанси",
+    "indexKeywords": "Економіка, валюти, ВВП, банкінг, фінанси",
+    "postsByCategory": "Усі пости за категорією:",
+    "postsByCategoryDesc": "Список статей за категорією:",
+    "postsByTag": "Усі пости за тегом:",
+    "postsByTagDesc": "Список постів за тегом:",
+    "searchByQuery": "Пошук по запиту:",
+    "search": "пошук"
+  },
   "header": {
     "brandPhrase": "Розповідаємо про особисті фінанси",
     "brandBtn": "Кошт",
@@ -20,8 +32,8 @@
     "titleReadMore": "Читайте ще",
     "titleNewsWeek": "Головне",
     "titleNews": "Новини",
+    "titleAllNews": "Всі новини",
     "titleEditorChoice": "Вибір редакції",
-    "titleCurrenciesToday": "Курс валют на сьогодні",
     "currencyEuro": "Євро",
     "currencyUSD": "Долар",
     "currencyBank": "Банк",
@@ -30,13 +42,16 @@
     "allCurrenciesLink": "Всі банки і валюти"
   },
   "currenciesPage": {
+    "titleCurrenciesToday": "Курс валют на сьогодні",
     "pageTitle": "Курс валют на сьогодні",
     "searchInput": "Пошук за назвою банку",
     "atPayDesk": "У касах банків",
     "atCard": "При оплаті карткою",
     "atOnline": "При оплаті онлайн",
     "currencyBuy": "Купівля",
-    "currencySelling": "Продаж"
+    "currencySelling": "Продаж",
+    "currenciesList": "Євро, Долар, Рубль, Фунт, Швейц.франк, Злотий, Крона",
+    "currenciesDesc": "Курси іноземних валют до гривні на сьогодні. Курс валют при купівлі  онлайн, купівлі при оплаті карткою, купівлі в касах банків"
   },
   "loading": {
     "loadingStatus": "Завантаження..."
@@ -49,6 +64,5 @@
     "noPosts": "Ще не створено постів!"
   },
   "postDetail": {
-
   }
 }
