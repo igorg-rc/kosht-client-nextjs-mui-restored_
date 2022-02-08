@@ -1,15 +1,17 @@
 import moment from 'moment'
-import { Link, useRouteMatch, useHistory } from "react-router-dom"
-import { makeStyles, Accordion, AccordionSummary, AccordionDetails, useMediaQuery, useTheme, IconButton } from "@material-ui/core"
-import { ExpandLess, ExpandMore } from "@material-ui/icons"
-import { Trans, useTranslation } from 'react-i18next'
+import { Accordion, AccordionSummary, AccordionDetails, useMediaQuery, useTheme, IconButton } from "@mui/material"
+import { ExpandLess, ExpandMore } from "@mui/icons-material"
+import { makeStyles } from "@mui/styles"
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme => ({
   main: {
     background: '#FFFFFF',
     boxShadow: '0px 8px 25px rgba(83, 89, 144, 0.07)',
     borderRadius: 5,
-    padding: '0 5px'
+    // padding: '0 5px'
   },
   accordionSummary: {
     width: '100%',
@@ -72,7 +74,7 @@ const useStyles = makeStyles(theme => ({
     color: '#B8B8B8',
     fontFamily: 'Gilroy, sans-serif',
     marginRight: 10,
-    lineHeight: '150%'
+    // lineHeight: '150%'
   },
   titleBadge: {
     fontFamily: 'Roboto, sans-serif',
@@ -112,34 +114,39 @@ const useStyles = makeStyles(theme => ({
 
 
 export const PostSeparateListIndex = props => {
-  const { items, label, toggleShowMore, expanded, toggleExpanded, showMore, currenciesList } = props
+  const { 
+    items, 
+    label, 
+    toggleShowMore, 
+    expanded, 
+    toggleExpanded, 
+    showMore, 
+    currenciesList 
+  } = props
+
   const styles = useStyles()
   const theme = useTheme()
   const {t} = useTranslation()
-  const history = useHistory()
+  const router = useRouter()
   const isSM = useMediaQuery(theme.breakpoints.down('sm'))
-  const match = useRouteMatch()
-  const labelOfEditorChoice = label === "Вибір редакції" || label === "Editor choice"
   const labelMainNews = label === "Головне" || label === "Main news"
   const labelNewsList = label === "Новини" || label === "News"
   const labelReadMore = label === "Читайте також" || label === "Read more"
+  const labelAllNews  = label === "Новини" || label === "News"
+  const labelOfEditorChoice = label === "Вибір редакції" || label === "Editor choice"
   const labelCurrenciesRate = label === "Курс валют на сьогодні" || label === "Exchange rate for today"
 
   const rows = <div className={styles.content}>
-    { items.map(item => (
+    { items ? items.map(item => (
       <div 
         className={`${styles.contentRow} content-row`} 
         key={item._id} 
         style={{ 
           display: 'flex', 
           flexDirection: (labelOfEditorChoice || labelNewsList) ? 'column-reverse' : 'row',
-          paddingBottom: 10
+          marginBottom: 10
         }}>
-        <div 
-          className={`${styles.dateBadgeKeeper} date-keeper`} 
-          style={{ 
-            borderBottom:  (labelOfEditorChoice || labelCurrenciesRate || labelNewsList) ? '1px solid #E9E9E9': 'none'
-          }}>
+        <div>
           <span 
             className={styles.dateBadge} 
             style={{ 
@@ -153,21 +160,21 @@ export const PostSeparateListIndex = props => {
             style={{ 
               display: labelOfEditorChoice ? "inline-block" : 'none' ,
               fontSize: 10,
-              paddingBottom: 7
+              // paddingBottom: 7
             }}>
             {moment.utc(item.createdAt).local().format('DD.MM HH:mm')}
           </span>
         </div>
         <div className={styles.titleLinkKeeper}>
           <span className={styles.linkToPostHolder}>
-            <Link to={`/${item.slug}`} className={styles.titleBadge}>{item.title}</Link>
+            <Link href={`/${item.slug}`}>
+              <span className={styles.titleBadge}>{item.title}</span>
+            </Link>
           </span>
         </div>
       </div>
-    )) }
+    )) : "There are no items" }
   </div> 
-
-  console.log(match)
 
   return <div 
       className={styles.main}
@@ -200,7 +207,7 @@ export const PostSeparateListIndex = props => {
           <ExpandMore 
             className={styles.icon} 
             style={{ 
-              display: (labelOfEditorChoice || labelCurrenciesRate) && 'none',
+              display: (labelOfEditorChoice || labelCurrenciesRate || labelAllNews) && 'none',
               marginRight: 0
             }} 
           />
@@ -243,8 +250,14 @@ export const PostSeparateListIndex = props => {
         <div 
           className={styles.linkHolder} 
           style={{ display: !labelCurrenciesRate ? 'none' : 'inline-block'}}
-          onClick={() => history.push('/currencies/25.07.21')}
+          onClick={() => router.replace('/currencies')}
         ><span>{t("separateList.allCurrenciesLink")}</span>
+        </div>
+        <div 
+          className={styles.linkHolder} 
+          style={{ display: !labelAllNews ? 'none' : 'inline-block'}}
+          onClick={() => router.replace('/')}
+        ><span>{t("separateList.titleAllNews")}</span>
         </div>
       </div>
     </Accordion>

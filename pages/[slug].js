@@ -2,20 +2,27 @@ import axios from "axios"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { Item, SectionTitle } from "../components/UI/UIUnits"
+import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
 import { makeStyles } from "@mui/styles"
 import { Typography } from "@mui/material"
 import Link from "../src/Link"
-import Image from "next/image";
+import Image from "next/image"
 import { SRLWrapper } from "simple-react-lightbox"
 import moment from 'moment'
+import Head from "next/head"
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
+import { useState } from "react"
+import { useTranslation } from "next-i18next"
 
+// const API_LINK = "http://193.46.199.82:5000/api/posts"
 const API_LINK = "https://kosht-api.herokuapp.com/api/posts"
+const READMORE_LINK = 'https://kosht-api.herokuapp.com/api/posts/readmore'
 
 const useStyles = makeStyles(theme => ({
   main: {
     border: '1px solif #000',
+    // paddingBottom: 20
   },
   
   linkText:{
@@ -70,18 +77,25 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function Post({ post }) {
+export default function Post({ post, fetchedPosts }) {
+  const { t } = useTranslation("common")
   const router = useRouter()
   const styles = useStyles()
+  const [showMore, setShowMore] = useState(true)
+  const [expanded, setExpanded] = useState(true)
+
+  const tags = post?.tags.map(tag => (
+    router.locale === "ua" ? tag.title_ua : tag.title_en 
+  )).toString()
+
+  console.log(tags)
 
   return <>
-    {/* <Item>
-      <div style={{ padding: '0 20px' }}>
-      <h2>{slug}</h2>
-      <h4>{post.title}</h4>
-      <p style={{ textAlign: 'justify' }}>{post.body}</p> 
-      </div>
-    </Item> */}
+    <Head>
+      <title>{t("head.mainTitle")} | {post.title}</title>
+      <meta name="description" content={post.description} />
+      <meta name="tags" content={tags} />
+    </Head>
     <Item style={{ border: '1px sold #000' }} key={post._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
       <Typography paragraph className={styles.topBage}>
@@ -97,7 +111,7 @@ export default function Post({ post }) {
           </Link>
         ))}
       <span className={styles.date}>
-        {new Date(Date.now()).getDate() - new Date(post.createdAt).getDate()  < 30 ?
+        {new Date(Date.now()).getDate() - new Date(post.createdAt).getDate() < 30 ?
           (router.locale === "uk" ? 
             moment.utc(post.createdAt).local().locale('uk').fromNow() : 
             moment.utc(post.createdAt).local().locale('en-gb').fromNow()
@@ -109,13 +123,22 @@ export default function Post({ post }) {
         <div 
           className="post-content post-content-detail" 
           dangerouslySetInnerHTML={{__html: post.body}}
-          >
-      </div>
+        >
+        </div>
       <SRLWrapper>
         {post.imgUrl && <Image src={post.imgUrl} srl_gallery_image="true" maxWidth="100%" />}
       </SRLWrapper>
       </div>
     </Item>
+
+    <PostSeparateListIndex
+      label={router.locale === "uk" ? "Читайте також" : "Read more"}
+      items={showMore ? fetchedPosts.slice(0, 5) : fetchedPosts.slice(0, 10)}
+      showMore={showMore}
+      expanded={expanded}
+      toggleExpanded={() => setExpanded(!expanded)}
+      toggleShowMore={() => setShowMore(!showMore)} 
+    />
   </>
   
 }
@@ -137,12 +160,15 @@ export async function getStaticPaths({locales}) {
 }
 
 export async function getStaticProps(context) {
-  const res = await axios.get(`${API_LINK}/slug/${context.params.slug}`)
-  const post = res.data
+  const resPost = await axios.get(`${API_LINK}/slug/${context.params.slug}`)
+  const resItems = await axios.get(`${READMORE_LINK}/${context.params.slug}`)
+  const post = resPost.data
+  const fetchedPosts = resItems.data
 
   return { 
     props: { 
       params: context.params,
+      fetchedPosts,
       post, 
       ...await serverSideTranslations(context.locale, ["common"]) 
     } 
