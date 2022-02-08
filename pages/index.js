@@ -4,11 +4,11 @@ import axios from 'axios'
 import Link from '../src/Link'
 import { useRouter } from 'next/router'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { PostSeparateListIndex } from '../components/PostList/PostSeparateListIndex'
+// import { PostSeparateListIndex } from '../components/PostList/PostSeparateListIndex'
 import { SectionTitle } from '../components/UI/UIUnits'
 import { Item } from '../components/UI/UIUnits'
 import { Typography } from '@mui/material'
-import { useTranslation } from 'next-i18next'
+// import { useTranslation } from 'next-i18next'
 import Head from "next/head"
 import moment from 'moment'
 import 'moment/locale/en-gb'
@@ -85,21 +85,21 @@ const Index = ({posts, listItems}) => {
 
   return (
     <>
-      {/* <Head>
+      <Head>
         <title>{router.locale === "uk" ? titleUA : titleEN}</title>
         <title>{t("head.mainTitle")} | {t("head.indexTitle")}</title>
         <meta name="description" content={t("head.indexDescription")} />
         <meta name="keywords" content={t("head.indexKeywords")} />
-      </Head> */}
+      </Head>
       {/* <h1  style={{ textAlign: 'center' }}>{!localeUA ? "Index page" : "Головна"}</h1> */}
-      <PostSeparateListIndex
+      {/* <PostSeparateListIndex
         label={router.locale === "uk" ? "Головне" : "Main news"}
         items={showMore ? listItems?.slice(0, 5) : listItems?.slice(0, listItems.length)}
         showMore={showMore}
         expanded={expanded}
         toggleExpanded={() => setExpanded(!expanded)}
         toggleShowMore={() => setShowMore(!showMore)} 
-      />
+      /> */}
 
       {posts?.map(i =>  <div key={i._id} style={{ border: '1px sold #000', marginBottom: 20 }}>
         <Item >
@@ -117,7 +117,7 @@ const Index = ({posts, listItems}) => {
               </Link>
             ))}
           <span className={styles.date}>
-            {new Date(Date.now()).getDate() - new Date(i.createdAt).getDate()  < 30 ?
+            {new Date(Date.now()).getDate() - new Date(i.createdAt).getDate() < 30 ?
               (router.locale === "uk" ? 
                 moment.utc(i.createdAt).local().locale('uk').fromNow() : 
                 moment.utc(i.createdAt).local().locale('en-gb').fromNow()
@@ -165,8 +165,8 @@ export async function getServerSideProps({locale}) {
   const res = await axios.get('https://kosht-api.herokuapp.com/api/posts')
   const posts = res.data.data
     
-  const resItems = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
-  const listItems = resItems.data.posts
+  // const resItems = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
+  // const listItems = resItems.data.posts
     
 
   // const postsList = await axios.get(`https://kosht-api.herokuapp.com/api/posts/tags/monobank`)
@@ -175,7 +175,7 @@ export async function getServerSideProps({locale}) {
   return {
     props: {
       posts, 
-      listItems,
+      // listItems,
       ...await serverSideTranslations(locale, ['common']) 
     } 
   }
