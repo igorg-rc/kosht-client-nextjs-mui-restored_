@@ -2,7 +2,7 @@ import axios from "axios"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { Item, SectionTitle } from "../components/UI/UIUnits"
-import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
+// import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
 import { makeStyles } from "@mui/styles"
 import { Typography } from "@mui/material"
 import Link from "../src/Link"
@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function Post({ post, fetchedPosts }) {
+export default function Post({ post }) {
   const { t } = useTranslation("common")
   const router = useRouter()
   const styles = useStyles()
@@ -131,14 +131,14 @@ export default function Post({ post, fetchedPosts }) {
       </div>
     </Item>
 
-    <PostSeparateListIndex
+    {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? fetchedPosts.slice(0, 5) : fetchedPosts.slice(0, 10)}
       showMore={showMore}
       expanded={expanded}
       toggleExpanded={() => setExpanded(!expanded)}
       toggleShowMore={() => setShowMore(!showMore)} 
-    />
+    /> */}
   </>
   
 }
@@ -161,14 +161,14 @@ export async function getStaticPaths({locales}) {
 
 export async function getStaticProps(context) {
   const resPost = await axios.get(`${API_LINK}/slug/${context.params.slug}`)
-  const resItems = await axios.get(`${READMORE_LINK}/${context.params.slug}`)
+  // const resItems = await axios.get(`${READMORE_LINK}/${context.params.slug}`)
   const post = resPost.data
-  const fetchedPosts = resItems.data
+  // const fetchedPosts = resItems.data
 
   return { 
     props: { 
       params: context.params,
-      fetchedPosts,
+      // fetchedPosts,
       post, 
       ...await serverSideTranslations(context.locale, ["common"]) 
     } 
