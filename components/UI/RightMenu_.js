@@ -8,6 +8,7 @@ import { makeStyles, styled } from "@mui/styles"
 import { Typography, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow, Box } from "@mui/material"
 import { useState, useEffect } from "react"
 import { currenciesGeneralList } from "../../files/data/mocData"
+import { RightMenuPostList } from "../PostList/PostLists"
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -253,27 +254,18 @@ export const RightMenu = props => {
 </div> 
 
 
-  return router.pathname.includes('currencies') ? <>
-    <Item>
-      {news?.data.slice(0, 20).map(item => (
-        <div key={item._id}>
-          <Link href={item.slug}>
-            {item.title}
-          </Link>
-        </div>
-      ))}
-    </Item>
+  return router.pathname.includes('currencies') ? 
+  <>
+    <RightMenuPostList 
+      label={editorChoice && (router.locale === "uk" ? "Новини" : "News")}
+      items={news && news.data.slice(0, 20)} 
+    />
   </> :
   <>
     <Item>{currenciesList}</Item>
-    <Item>
-      {editorChoice?.posts.map(item => (
-        <div key={item._id}>
-          <Link href={`/${item.slug}`}>
-            {item.title}
-          </Link>
-        </div>
-      ))}
-    </Item>
+    <RightMenuPostList 
+      label={editorChoice && (router.locale === "uk" ? editorChoice.title_ua : editorChoice.title_en)}
+      items={editorChoice && editorChoice.posts} 
+    />
   </>
 }

@@ -41,3 +41,10 @@ body {
   color: '#2E3A59' !important;
 }
 
+.content-row {
+  border-bottom: 1px solid #E9E9E9;
+}
+
+.content-row:last-child  {
+  border-bottom: none !important;
+}

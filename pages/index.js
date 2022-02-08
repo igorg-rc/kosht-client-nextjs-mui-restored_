@@ -1,6 +1,5 @@
 
-import * as React from 'react';
-import { useTheme, makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import axios from 'axios';
 import Link from '../src/Link';
 import { useRouter } from 'next/router';
@@ -16,7 +15,7 @@ import 'moment/locale/uk'
 
 const useStyles = makeStyles(theme => ({
   main: {
-    border: '1px solif #000',
+    border: '1px solid #000',
   },
   linkText:{
     textAlign: 'left',
