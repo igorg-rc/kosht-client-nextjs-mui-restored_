@@ -100,8 +100,6 @@ const Index = ({posts, mainNews}) => {
       items={mainNews.posts}
       label={router.locale === "uk" ? mainNews.title_ua : mainNews.title_en}
     />
-
-
     {posts ? posts.data.map(i => <Item style={{ border: '1px sold #000' }} key={i._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
       <Typography paragraph className={styles.topBage}>
@@ -145,7 +143,7 @@ const Index = ({posts, mainNews}) => {
 
 export default Index
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   // const LOCAL_API_LINK = "http://193.46.199.82:5000/api"
   // const PROD_API_LINK = "http:localhost:5000/api"
   const fetchedPosts = await axios.get('https://kosht-api.herokuapp.com/api/posts')  
