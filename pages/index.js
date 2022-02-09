@@ -13,7 +13,7 @@ import { Typography } from '@mui/material';
 import moment from 'moment'
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
-import { ContentPostList, RightMenuPostList } from '../components/PostList/PostLists';
+// import { ContentPostList, RightMenuPostList } from '../components/PostList/PostLists';
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -70,14 +70,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-// const loadData = async locale => {
-//   const response = await fetch("/api/hello", { headers: { "Accept-Language": locale } })
-//   const data = response.json()
-//   return data 
-// }
 
-
-const Index = ({posts, mainNews}) => {
+const Index = ({posts}) => {
   const { locale } = useRouter()
   const router = useRouter()
   const { slug } = router.query
@@ -96,10 +90,10 @@ const Index = ({posts, mainNews}) => {
 
   return (
     <>
-    <RightMenuPostList 
+    {/* <RightMenuPostList 
       items={mainNews.posts}
       label={router.locale === "uk" ? mainNews.title_ua : mainNews.title_en}
-    />
+    /> */}
     {posts ? posts.data.map(i => <Item style={{ border: '1px sold #000' }} key={i._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
       <Typography paragraph className={styles.topBage}>
@@ -143,15 +137,15 @@ const Index = ({posts, mainNews}) => {
 
 export default Index
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   // const LOCAL_API_LINK = "http://193.46.199.82:5000/api"
   // const PROD_API_LINK = "http:localhost:5000/api"
   const fetchedPosts = await axios.get('https://kosht-api.herokuapp.com/api/posts')  
-  const fetchedMainNews = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
   const posts = fetchedPosts.data
-  const mainNews = fetchedMainNews.data
+  // const fetchedMainNews = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
+  // const mainNews = fetchedMainNews.data
 
   return {
-    props: {posts, mainNews, ...await serverSideTranslations(locale, ['common']) } 
+    props: {posts, ...await serverSideTranslations(locale, ['common']) } 
   }
 }

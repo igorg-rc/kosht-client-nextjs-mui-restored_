@@ -2,7 +2,7 @@ import axios from "axios"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { Item, SectionTitle } from "../components/UI/UIUnits"
-// import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
+import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
 import { makeStyles } from "@mui/styles"
 import { Typography } from "@mui/material"
 import Link from "../src/Link"
@@ -14,7 +14,7 @@ import 'moment/locale/en-gb'
 import 'moment/locale/uk'
 import { useState } from "react"
 import { useTranslation } from "next-i18next"
-import { RightMenuPostList } from "../components/PostList/PostLists"
+// import { RightMenuPostList } from "../components/PostList/PostLists"
 
 // const API_LINK = "http://193.46.199.82:5000/api/posts"
 const API_LINK = "https://kosht-api.herokuapp.com/api/posts"
@@ -135,19 +135,19 @@ export default function Post({ post, fetchedPosts }) {
       </div>
     </Item>
 
-    <RightMenuPostList 
+    {/* <RightMenuPostList 
       items={fetchedPosts}
       label={router.locale === "uk" ? "Читайте ще" : "Read more"}
-    />
+    /> */}
 
-    {/* <PostSeparateListIndex
+    <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? fetchedPosts.slice(0, 5) : fetchedPosts.slice(0, 10)}
       showMore={showMore}
       expanded={expanded}
       toggleExpanded={() => setExpanded(!expanded)}
       toggleShowMore={() => setShowMore(!showMore)} 
-    /> */}
+    />
   </>
   
 }
