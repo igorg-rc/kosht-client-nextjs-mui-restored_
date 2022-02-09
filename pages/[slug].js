@@ -14,6 +14,7 @@ import 'moment/locale/en-gb'
 import 'moment/locale/uk'
 import { useState } from "react"
 import { useTranslation } from "next-i18next"
+import { RightMenuPostList } from "../components/PostList/PostLists"
 
 // const API_LINK = "http://193.46.199.82:5000/api/posts"
 const API_LINK = "https://kosht-api.herokuapp.com/api/posts"
@@ -77,7 +78,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function Post({ post }) {
+export default function Post({ post, fetchedPosts }) {
   const { t } = useTranslation("common")
   const router = useRouter()
   const styles = useStyles()
@@ -88,7 +89,6 @@ export default function Post({ post }) {
     router.locale === "ua" ? tag.title_ua : tag.title_en 
   )).toString()
 
-  console.log(tags)
 
   return <>
     <Head>
@@ -126,10 +126,19 @@ export default function Post({ post }) {
         >
         </div>
       <SRLWrapper>
-        {post.imgUrl && <Image src={post.imgUrl} srl_gallery_image="true" maxWidth="100%" />}
+        {post.imgUrl && <Image 
+          src={post.imgUrl} 
+          srl_gallery_image="true" 
+          maxWidth="100%" 
+        />}
       </SRLWrapper>
       </div>
     </Item>
+
+    <RightMenuPostList 
+      items={fetchedPosts}
+      label={router.locale === "uk" ? "Читайте ще" : "Read more"}
+    />
 
     {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
@@ -161,14 +170,13 @@ export async function getStaticPaths({locales}) {
 
 export async function getStaticProps(context) {
   const resPost = await axios.get(`${API_LINK}/slug/${context.params.slug}`)
-  // const resItems = await axios.get(`${READMORE_LINK}/${context.params.slug}`)
+  const resItems = await axios.get(`${READMORE_LINK}/${context.params.slug}`)
   const post = resPost.data
-  // const fetchedPosts = resItems.data
+  const fetchedPosts = resItems.data
 
   return { 
     props: { 
-      params: context.params,
-      // fetchedPosts,
+      fetchedPosts,
       post, 
       ...await serverSideTranslations(context.locale, ["common"]) 
     } 

@@ -246,7 +246,7 @@ export const Header = () => {
                       }}
                       onChange={e => onSearchChange(e.target.value)}
                       value={query}
-                      ref={searchInputRef}
+                      // ref={searchInputRef}
                       InputProps={{
                         className: styles.searchInput,
                         classes: { 

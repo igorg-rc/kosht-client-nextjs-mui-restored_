@@ -23,7 +23,7 @@ body {
 .post-content p {
   margin-top: 0 !important;
 }
-.post-content p img, .ql-video {
+.post-content p img, .html5-video-container {
   text-align: center !important;
   padding-top: 5px !important;
   max-width: 100% !important;
