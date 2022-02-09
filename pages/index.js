@@ -134,7 +134,6 @@ const Index = ({posts}) => {
   );
 }
 
-
 export default Index
 
 export async function getServerSideProps({ locale }) {
@@ -144,7 +143,7 @@ export async function getServerSideProps({ locale }) {
   const posts = fetchedPosts.data
   // const fetchedMainNews = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
   // const mainNews = fetchedMainNews.data
-
+ 
   return {
     props: {posts, ...await serverSideTranslations(locale, ['common']) } 
   }

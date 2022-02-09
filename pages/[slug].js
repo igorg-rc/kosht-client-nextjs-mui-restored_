@@ -149,7 +149,6 @@ export default function Post({ post, fetchedPosts }) {
       toggleShowMore={() => setShowMore(!showMore)} 
     />
   </>
-  
 }
 
 
