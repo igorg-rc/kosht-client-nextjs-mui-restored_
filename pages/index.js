@@ -90,6 +90,11 @@ const Index = ({posts}) => {
 
   return (
     <>
+    <Head>
+      <title>{t("head.mainTitle")} | {t("head.searchByQuery")} "{query}"</title>
+      <meta name="description" content={postTitles} />
+      <meta name="keywords" content={`${t("head.mainTitle")}, ${query}, ${t("head.search")}`} />
+    </Head>
     {/* <RightMenuPostList 
       items={mainNews.posts}
       label={router.locale === "uk" ? mainNews.title_ua : mainNews.title_en}
@@ -139,7 +144,7 @@ export default Index
 export async function getServerSideProps({ locale }) {
   // const LOCAL_API_LINK = "http://193.46.199.82:5000/api"
   // const PROD_API_LINK = "http:localhost:5000/api"
-  const fetchedPosts = await axios.get('https://kosht-api.herokuapp.com/api/posts')  
+  const fetchedPosts = await axios.get('http://193.46.199.82:5000/api/posts')  
   const posts = fetchedPosts.data
   // const fetchedMainNews = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
   // const mainNews = fetchedMainNews.data
